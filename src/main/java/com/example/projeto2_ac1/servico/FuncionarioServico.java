@@ -19,4 +19,10 @@ public class FuncionarioServico {
         return repository.findAll();
     }
 
+    public void salvar(Funcionario funcionario)
+    {
+        //só salvar se nao for null
+        repository.save(funcionario);
+    }
+
 }
