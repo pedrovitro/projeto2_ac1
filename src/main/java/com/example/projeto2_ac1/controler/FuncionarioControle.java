@@ -28,8 +28,20 @@ public class FuncionarioControle {
     @PostMapping("/salvar")
     public String salvar(@ModelAttribute Funcionario funcionario)
     {
-        servico.salvar(funcionario);
+        if(validar(funcionario))
+             servico.salvar(funcionario);
+             
         return "redirect:/funcionarios";
+    }
+
+    public boolean validar (Funcionario func)
+    {
+        if(func.getNome() == null || func.getSalario() < 0 || func.getCargo() == null )
+            return false;
+        else if(func.getNome().trim().length() == 0 ||func.getCargo().trim().length() == 0 )
+            return false;
+        else 
+        return true;
     }
     
 }

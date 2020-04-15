@@ -21,8 +21,7 @@ public class FuncionarioServico {
 
     public void salvar(Funcionario funcionario)
     {
-        //só salvar se nao for null
-        repository.save(funcionario);
+            repository.save(funcionario);
     }
 
 }
